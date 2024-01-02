@@ -1,5 +1,4 @@
 import React from 'react';
-import './numberButton.css';
 import {Button} from '@mui/material';
 
 function NumberButton(props){
