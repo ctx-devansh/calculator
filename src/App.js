@@ -5,11 +5,11 @@ import OperationButton from './widgets/OperationButton';
 function App() {
   return (
       <div id="main">
-        <TextField className='calcTextField' label="" variant="outlined" />
-        <table>
+        <TextField id='calcTextField' className='calc' label="" variant="outlined" ></TextField>
+        <table id="buttonsTable">
           <tr>
             <OperationButton value="AC"></OperationButton>
-            <NumberButton value="("></NumberButton>
+            <NumberButton value="(" />
             <NumberButton value=")"></NumberButton>
             <OperationButton value="/"></OperationButton>
           </tr>

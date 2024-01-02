@@ -7,9 +7,13 @@
   margin-top: 50px;
 }
 
-.calcTextField{
+.calc{
   width: 60%;
-  height: 20px;
+  height: 50px;
   font-size: 50px;
   text-align: right;
+}
+
+#buttonsTable{
+  margin-top: 10px;
 }

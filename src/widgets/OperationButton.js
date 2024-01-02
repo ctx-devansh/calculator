@@ -34,7 +34,7 @@ function OperationButton(props){
         
     }
     return(
-        <Button variant="contained" onClick={handleClick}>
+        <Button variant="contained" onClick={handleClick} sx={[{height: '60px', width: '60px', bgcolor: 'black', borderRadius: '50%', color: 'white', margin: '5px'},{'&:hover': {backgroundColor: 'grey',}}]}>
             {props.value}
         </Button>
     );
