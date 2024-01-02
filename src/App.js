@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {TextField} from '@mui/material';
+import NumberButton from './widgets/NumberButton';
+import OperationButton from './widgets/OperationButton';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div id="main">
+        <TextField className='calcTextField' label="" variant="outlined" />
+        <table>
+          <tr>
+            <OperationButton value="AC"></OperationButton>
+            <NumberButton value="("></NumberButton>
+            <NumberButton value=")"></NumberButton>
+            <OperationButton value="/"></OperationButton>
+          </tr>
+          <tr>
+            <NumberButton value="7"></NumberButton>
+            <NumberButton value="8"></NumberButton>
+            <NumberButton value="9"></NumberButton>
+            <OperationButton value="*"></OperationButton>
+          </tr>
+          <tr>
+            <NumberButton value="4"></NumberButton>
+            <NumberButton value="5"></NumberButton>
+            <NumberButton value="6"></NumberButton>
+            <OperationButton value="-"></OperationButton>
+          </tr>
+          <tr>
+            <NumberButton value="1"></NumberButton>
+            <NumberButton value="2"></NumberButton>
+            <NumberButton value="3"></NumberButton>
+            <OperationButton value="+"></OperationButton>
+          </tr>
+
+          <tr>
+            <NumberButton value="0"></NumberButton>
+            <NumberButton value="."></NumberButton>
+            <OperationButton value="="></OperationButton>
+          </tr>
+        </table>
+      </div>
   );
 }
-
 export default App;

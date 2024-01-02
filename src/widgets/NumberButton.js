@@ -5,7 +5,7 @@ function NumberButton(props){
         document.getElementById('calcTextField').value += props.value;
     }
     return(
-        <Button className="buttonStyle" variant="contained" onClick={handleClick}>
+        <Button className="" variant="contained" onClick={handleClick}>
             {props.value}
         </Button>
     );
