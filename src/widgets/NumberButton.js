@@ -50,26 +50,15 @@ function NumberButton(props){
         console.log("hello");
         document.getElementById('calcTextField').value += props.value;
     }
-
-    if(props.type === "type1"){
-        return(
-            <ThemeProvider theme={type1}>
-                <CssBaseline />
-                <Button variant="contained" onClick={handleClick} color="color1" size="extraSmall">
-                    {props.value}
-                </Button>
-            </ThemeProvider>
-        );
-    }else if (props.type === "type2"){
-        return(
-            <ThemeProvider theme={type2}>
-                <CssBaseline />
-                <Button variant="contained" onClick={handleClick} color="color1" size="extraSmall">
-                    {props.value}
-                </Button>
-            </ThemeProvider>
-        );
-    }
+    // Return the Number Button with the correct theme
+    return(
+        <ThemeProvider theme={props.type === "type1" ? type1 : type2}>
+            <CssBaseline />
+            <Button variant="contained" onClick={handleClick} color="color1" size="extraSmall">
+                {props.value}
+            </Button>
+        </ThemeProvider>
+    );
 
 
 }

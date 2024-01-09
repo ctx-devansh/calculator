@@ -77,25 +77,13 @@ function OperationButton(props){
         }
         
     }
-
-    if(props.type === "type1"){
-        return(
-            <ThemeProvider theme={type1}>
-                <Button variant="contained" onClick={handleClick} color="color1" size="custom">
-                    {props.value}
-                </Button>
-            </ThemeProvider>
-        );
-    }else if(props.type === "type2"){
-        return(
-            <ThemeProvider theme={type2}>
-                <Button variant="contained" onClick={handleClick} color="color1" size="custom">
-                    {props.value}
-                </Button>
-            </ThemeProvider>
-        );
-    }
-
-    
+    // Return the Operation Button with the correct theme
+    return(
+        <ThemeProvider theme={props.type === "type1" ? type1 : type2}>
+            <Button variant="contained" onClick={handleClick} color="color1" size="custom">
+                {props.value}
+            </Button>
+        </ThemeProvider>
+    );
 }
 export default OperationButton;

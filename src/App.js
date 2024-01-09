@@ -22,6 +22,7 @@ function App() {
 
   return (
       <div id="main" style={currentTheme === "type2" ? backgroundStyle2 : backgroundStyle1}>
+
         <div id="themeSwitch">
           <Button onClick={handleClick}>Light/Dark</Button>
         </div>
@@ -29,6 +30,7 @@ function App() {
         <div id="calcContainer">
           <TextField id='calcTextField' label="" variant="outlined" fullWidth helperText></TextField>
         </div>
+
         <table id="buttonsTable">
           <tr>
             <OperationButton id="button" value="AC" type={currentTheme}></OperationButton>
@@ -54,13 +56,13 @@ function App() {
             <NumberButton id="button" value="3" type={currentTheme}></NumberButton>
             <OperationButton id="button" value="+" type={currentTheme}></OperationButton>
           </tr>
-
           <tr>
             <NumberButton id="button" value="0" type={currentTheme}></NumberButton>
             <NumberButton id="button" value="." type={currentTheme}></NumberButton>
             <OperationButton id="button" value="=" type={currentTheme}></OperationButton>
           </tr>
         </table>
+        
       </div>
   );
 }
