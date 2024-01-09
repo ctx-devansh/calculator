@@ -22,11 +22,13 @@ function App() {
 
   return (
       <div id="main" style={currentTheme === "type2" ? backgroundStyle2 : backgroundStyle1}>
-        <Button onClick={handleClick}>Light/Dark</Button>
+        <div id="themeSwitch">
+          <Button onClick={handleClick}>Light/Dark</Button>
+        </div>
+        
         <div id="calcContainer">
           <TextField id='calcTextField' label="" variant="outlined" fullWidth helperText></TextField>
         </div>
-        
         <table id="buttonsTable">
           <tr>
             <OperationButton id="button" value="AC" type={currentTheme}></OperationButton>

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 50px;
+  height: 100%;
 }
 
 #calcContainer{
@@ -18,4 +18,8 @@
 
 #buttonsTable{
   margin-top: 30px;
+}
+
+#themeSwitch{
+  margin-top: 50px;
 }
