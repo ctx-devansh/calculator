@@ -1,33 +1,29 @@
 import './App.css';
+import {useState} from "react";
 import {Button, TextField} from '@mui/material';
 import NumberButton from './widgets/NumberButton';
 import OperationButton from './widgets/OperationButton';
 function App() {
 
-  var currentTheme = "type1";
+  var [currentTheme,setTheme] = useState("type2");
 
   function handleClick(){
     if(currentTheme === "type1"){
-      currentTheme = "type2";
+      setTheme("type2");
+      document.getElementById("mainType1").setAttribute("id","mainType2");
     }else{
-      currentTheme = "type1";
-    }
-    console.log(currentTheme);
-    const table = document.querySelectorAll("#buttonsTable");
-    console.log(table.childNodes);
-    for(const row in table.childNodes){
-      console.log(row);
-      for(const button in row.childNodes){
-        console.log(button);
-        button.setAttribute("type",currentTheme);
-      }
+      setTheme("type1");
+      document.getElementById("mainType2").setAttribute("id","mainType1");
     }
   }
 
   return (
-      <div id="main">
+      <div id="mainType2">
         <Button onClick={handleClick}>Light/Dark</Button>
-        <TextField id='calcTextField' className='calc' label="" variant="outlined" ></TextField>
+        <div id="calcContainer">
+          <TextField id='calcTextField' label="" variant="outlined" fullWidth helperText></TextField>
+        </div>
+        
         <table id="buttonsTable">
           <tr>
             <OperationButton id="button" value="AC" type={currentTheme}></OperationButton>

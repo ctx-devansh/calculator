@@ -4,14 +4,24 @@ import { ThemeProvider,createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 const type1 = createTheme({
-  palette: {
-    color1: {
-      main: 'red',
-      light: 'green',
-      dark: 'blue',
-      contrastText: '#FFFFFF',
+    palette: {
+        color1: {
+        main: '#FFFFFF',
+        light: 'green',
+        dark: '#dcdcdc',
+        contrastText: '#000000',
+        },
     },
-  },
+    components: {
+        MuiButton: {
+            variants: [
+                {
+                props: { size: "extraSmall" },
+                style: { fontSize: "20px", height: "60px", width: "70px", borderRadius: "40px", margin: "5px" }
+                }
+            ]
+        }
+    },
 });
 
 const type2 = createTheme({
@@ -23,7 +33,17 @@ const type2 = createTheme({
         contrastText: '#FFFFFF',
       },
     },
-  });
+    components: {
+        MuiButton: {
+            variants: [
+                {
+                props: { size: "extraSmall" },
+                style: { fontSize: "20px", height: "60px", width: "70px", borderRadius: "40px", margin: "5px" }
+                }
+            ]
+        }
+    },
+});
 
 function NumberButton(props){
     function handleClick(){
@@ -35,16 +55,16 @@ function NumberButton(props){
         return(
             <ThemeProvider theme={type1}>
                 <CssBaseline />
-                <Button variant="contained" onClick={handleClick} color="color1">
+                <Button variant="contained" onClick={handleClick} color="color1" size="extraSmall">
                     {props.value}
                 </Button>
             </ThemeProvider>
         );
-    }else{
+    }else if (props.type === "type2"){
         return(
             <ThemeProvider theme={type2}>
                 <CssBaseline />
-                <Button variant="contained" onClick={handleClick} color="color1">
+                <Button variant="contained" onClick={handleClick} color="color1" size="extraSmall">
                     {props.value}
                 </Button>
             </ThemeProvider>
