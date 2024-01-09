@@ -7,18 +7,21 @@ function App() {
 
   var [currentTheme,setTheme] = useState("type2");
 
+  const backgroundStyle1 = {backgroundColor: "#F5F5F5"};
+  const backgroundStyle2 = {backgroundColor: "#000000"};
+
+
   function handleClick(){
     if(currentTheme === "type1"){
       setTheme("type2");
-      document.getElementById("mainType1").setAttribute("id","mainType2");
     }else{
       setTheme("type1");
-      document.getElementById("mainType2").setAttribute("id","mainType1");
     }
   }
 
+
   return (
-      <div id="mainType2">
+      <div id="main" style={currentTheme === "type2" ? backgroundStyle2 : backgroundStyle1}>
         <Button onClick={handleClick}>Light/Dark</Button>
         <div id="calcContainer">
           <TextField id='calcTextField' label="" variant="outlined" fullWidth helperText></TextField>
