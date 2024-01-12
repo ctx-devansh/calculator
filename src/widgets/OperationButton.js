@@ -67,13 +67,16 @@ function OperationButton(props){
                 case '=':
                     document.getElementById('calcTextField').value = eval(document.getElementById('calcTextField').value);
                     break;
+                case 'DEL':
+                    var text = document.getElementById('calcTextField').value;
+                    document.getElementById('calcTextField').value = text.substring(0,text.length-1);
                 default:
-                    document.getElementById('calcTextField').value = '';
                     break;
             
             }
         } catch (err){
             document.getElementById('calcTextField').value = 'ERROR';
+            
         }
         
     }
