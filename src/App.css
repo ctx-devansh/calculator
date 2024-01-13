@@ -54,12 +54,10 @@
 
 @media (max-width: 600px) {
   #calcContainer {
-    /* Styles for screens smaller than 600px (like phones) */
     width: 90%;
   }
 
   #buttonsTable {
-    /* Styles for screens smaller than 600px (like phones) */
     width: 100%;
   }
 }
