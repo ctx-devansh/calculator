@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;260&display=swap');
 #main{
   display: flex;
   flex-direction: column;
@@ -32,20 +33,33 @@
 #calcTextField{
   border-color: transparent;
   padding: 5px;
-  padding-left: 15px;
-  text-align: left;
+  padding-right: 20px;
+  text-align: right;
   width: 100%;
   font-size: 45px;
-}
-
-#calcTextField:focus{
-  
+  font-family:'Work Sans';
 }
 
 #buttonsTable{
+  display: grid;
+  grid: auto / auto auto auto auto;
+  align-items: center;
+  grid-gap: 10px;
   margin-top: 30px;
 }
 
 #themeSwitch{
   margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  #calcContainer {
+    /* Styles for screens smaller than 600px (like phones) */
+    width: 90%;
+  }
+
+  #buttonsTable {
+    /* Styles for screens smaller than 600px (like phones) */
+    width: 100%;
+  }
 }

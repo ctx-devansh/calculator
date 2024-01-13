@@ -45,6 +45,27 @@ const type2 = createTheme({
     },
 });
 
+const type3 = createTheme({
+    palette: {
+      color1: {
+        main: '#e91d26',
+        light: '#4b4b4b',
+        dark: '#b5161d',
+        contrastText: '#FFFFFF',
+      },
+    },
+    components: {
+        MuiButton: {
+            variants: [
+                {
+                props: { size: "custom" },
+                style: { fontSize: "20px", height: "60px", width: "70px", borderRadius: "40px", margin: "5px" }
+                }
+            ]
+        }
+    },
+});
+
 function OperationButton(props){
     function handleClick(){
         try{
@@ -82,7 +103,7 @@ function OperationButton(props){
     }
     // Return the Operation Button with the correct theme
     return(
-        <ThemeProvider theme={props.type === "type1" ? type1 : type2}>
+        <ThemeProvider theme={props.type === "type1" ? type1 : props.type === "type3" ? type3 : type2}>
             <Button variant="contained" onClick={handleClick} color="color1" size="custom">
                 {props.value}
             </Button>
