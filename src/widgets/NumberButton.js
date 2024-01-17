@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button} from '@mui/material';
 import { ThemeProvider,createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 
 const type1 = createTheme({
     palette: {
@@ -47,13 +46,11 @@ const type2 = createTheme({
 
 function NumberButton(props){
     function handleClick(){
-        console.log("hello");
         document.getElementById('calcTextField').value += props.value;
     }
     // Return the Number Button with the correct theme
     return(
         <ThemeProvider theme={props.type === "type1" ? type1 : type2}>
-            <CssBaseline />
             <Button variant="contained" onClick={handleClick} color="color1" size="extraSmall">
                 {props.value}
             </Button>
