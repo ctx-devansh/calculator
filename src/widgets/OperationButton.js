@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Button} from '@mui/material';
 import { ThemeProvider,createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import HistoryContext,{Context} from './HistoryContext';
 
 const type1 = createTheme({
     palette: {
@@ -66,7 +66,12 @@ const type3 = createTheme({
     },
 });
 
+
+
 function OperationButton(props){
+
+    const[historyState,setHistoryState] = useContext(Context);
+
     function handleClick(){
         try{
             switch(props.value){
@@ -86,7 +91,17 @@ function OperationButton(props){
                     document.getElementById('calcTextField').value += '/';
                     break;
                 case '=':
-                    document.getElementById('calcTextField').value = eval(document.getElementById('calcTextField').value);
+                    var currEq = document.getElementById('calcTextField').value;
+                    var currEqSolved = eval(currEq);
+                    if(currEq !== ""  && currEqSolved !== "ERROR"){
+                        const newHistoryItem = {equation:currEq,solution:currEqSolved};
+                        setHistoryState((prev)=>{
+                            let returnArr = [...prev,newHistoryItem];
+                            return returnArr;
+                        });
+                        console.log(historyState);
+                    }
+                    document.getElementById('calcTextField').value = currEqSolved;
                     break;
                 case 'DEL':
                     var text = document.getElementById('calcTextField').value;
@@ -103,11 +118,13 @@ function OperationButton(props){
     }
     // Return the Operation Button with the correct theme
     return(
-        <ThemeProvider theme={props.type === "type1" ? type1 : props.type === "type3" ? type3 : type2}>
-            <Button variant="contained" onClick={handleClick} color="color1" size="custom">
-                {props.value}
-            </Button>
-        </ThemeProvider>
+        <HistoryContext>
+            <ThemeProvider theme={props.type === "type1" ? type1 : props.type === "type3" ? type3 : type2}>
+                <Button variant="contained" onClick={handleClick} color="color1" size="custom">
+                    {props.value}
+                </Button>
+            </ThemeProvider>
+        </HistoryContext>
     );
 }
 export default OperationButton;
