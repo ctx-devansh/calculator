@@ -69,9 +69,6 @@
   margin-top: 30px;
 }
 
-#navBar{
-  margin-top: 20px;
-}
 
 @media (max-width: 600px) {
 
@@ -86,6 +83,11 @@
 
   #calcContainer {
     width: 90%;
+  }
+
+  #navBar{
+    position: fixed;
+    top: 10%;
   }
 
   #historyBar{
