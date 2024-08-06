@@ -87,7 +87,7 @@
 
   #navBar{
     position: fixed;
-    top: 10%;
+    top: 20px;
   }
 
   #historyBar{
