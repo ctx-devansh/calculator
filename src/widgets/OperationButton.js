@@ -69,7 +69,7 @@ const type3 = createTheme({
 
 
 function OperationButton(props){
-
+    // eslint-disable-next-line
     const[historyState,setHistoryState] = useContext(Context);
 
     function handleClick(){
@@ -92,20 +92,23 @@ function OperationButton(props){
                     break;
                 case '=':
                     var currEq = document.getElementById('calcTextField').value;
+                    // eslint-disable-next-line
                     var currEqSolved = eval(currEq);
                     if(currEq !== ""  && currEqSolved !== "ERROR"){
-                        const newHistoryItem = {equation:currEq,solution:currEqSolved};
+                        const newHistoryItem = {key:historyState.length+1,equation:currEq,solution:currEqSolved};
                         setHistoryState((prev)=>{
                             let returnArr = [...prev,newHistoryItem];
+                            localStorage.setItem('history',JSON.stringify(returnArr));
                             return returnArr;
                         });
-                        console.log(historyState);
+                        
                     }
                     document.getElementById('calcTextField').value = currEqSolved;
                     break;
                 case 'DEL':
                     var text = document.getElementById('calcTextField').value;
                     document.getElementById('calcTextField').value = text.substring(0,text.length-1);
+                    break;
                 default:
                     break;
             

@@ -1,5 +1,5 @@
 import './App.css';
-import {useState,useContext} from "react";
+import {useState} from "react";
 import {Button} from '@mui/material';
 import NumberButton from './widgets/NumberButton';
 import OperationButton from './widgets/OperationButton';
@@ -31,48 +31,59 @@ function App() {
   function handleHistoryVisibility(){
     if(historyVisible === "false"){
       document.getElementById("historyBar").style.display = "flex";
+      if(window.innerWidth <= 600){
+        document.getElementById("calcContainer").style.display = "none";
+      }
       setHistoryVisible("true");
     }else{
       document.getElementById("historyBar").style.display = "none";
+      if(window.innerWidth <= 600){
+        document.getElementById("calcContainer").style.display = "flex";
+      }
       setHistoryVisible("false");
     }
   }
 
+  function handleClearHistory() {
+    
+  }
+
   return (
-      <div class="window" style={currentTheme === "type2" ? backgroundStyle2 : backgroundStyle1}>
+      <div className="window" style={currentTheme === "type2" ? backgroundStyle2 : backgroundStyle1}>
         <HistoryContext>
-          <div id="historyBar">
-            <HistoryList type={currentTheme}/>
-          </div>
           <div id="main">
             <div id="navBar">
               <Button onClick={()=>handleThemeSwitch()}>Light/Dark</Button>
               <Button onClick={() => handleHistoryVisibility()}>History</Button>
+              <Button onClick={() => handleClearHistory()}>Clear History</Button>
+            </div>
+            <div id="historyBar">
+              <HistoryList type={currentTheme} />
             </div>
             <div id="calcContainer" style={currentTheme === "type2" ? calcStyle2 : calcStyle1}>
               <div id="whiteSpace" style={currentTheme === "type2" ? fieldColor2 : fieldColor1}></div>
               <input id='calcTextField' style={currentTheme === "type2" ? fieldColor2 : fieldColor1}></input>
               <div id="buttonsTable">
-                  <OperationButton class="button" value="AC" type={currentTheme}></OperationButton>
-                  <NumberButton class="button" value="(" type={currentTheme}/>
-                  <NumberButton class="button" value=")" type={currentTheme}></NumberButton>
-                  <OperationButton class="button" value="/" type={currentTheme}></OperationButton>
-                  <NumberButton class="button" value="7" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="8" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="9" type={currentTheme}></NumberButton>
-                  <OperationButton class="button" value="*" type={currentTheme}></OperationButton>
-                  <NumberButton class="button" value="4" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="5" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="6" type={currentTheme}></NumberButton>
-                  <OperationButton class="button" value="-" type={currentTheme}></OperationButton>
-                  <NumberButton class="button" value="1" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="2" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="3" type={currentTheme}></NumberButton>
-                  <OperationButton class="button" value="+" type={currentTheme}></OperationButton>
-                  <OperationButton class="button" value="DEL" type="type3"></OperationButton>
-                  <NumberButton class="button" value="0" type={currentTheme}></NumberButton>
-                  <NumberButton class="button" value="." type={currentTheme}></NumberButton>
-                  <OperationButton class="button" value="=" type={currentTheme}></OperationButton>
+                  <OperationButton className="button" value="AC" type={currentTheme}></OperationButton>
+                  <NumberButton className="button" value="(" type={currentTheme}/>
+                  <NumberButton className="button" value=")" type={currentTheme}></NumberButton>
+                  <OperationButton className="button" value="/" type={currentTheme}></OperationButton>
+                  <NumberButton className="button" value="7" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="8" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="9" type={currentTheme}></NumberButton>
+                  <OperationButton className="button" value="*" type={currentTheme}></OperationButton>
+                  <NumberButton className="button" value="4" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="5" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="6" type={currentTheme}></NumberButton>
+                  <OperationButton className="button" value="-" type={currentTheme}></OperationButton>
+                  <NumberButton className="button" value="1" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="2" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="3" type={currentTheme}></NumberButton>
+                  <OperationButton className="button" value="+" type={currentTheme}></OperationButton>
+                  <OperationButton className="button" value="DEL" type="type3"></OperationButton>
+                  <NumberButton className="button" value="0" type={currentTheme}></NumberButton>
+                  <NumberButton className="button" value="." type={currentTheme}></NumberButton>
+                  <OperationButton className="button" value="=" type={currentTheme}></OperationButton>
               </div>
             </div>
           </div>

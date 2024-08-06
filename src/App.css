@@ -74,11 +74,33 @@
 }
 
 @media (max-width: 600px) {
+
+  #main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
   #calcContainer {
     width: 90%;
   }
 
-  #buttonsTable {
-    width: 100%;
+  #historyBar{
+    display: none;
+    flex-direction: column;
+    justify-content: right;
+    text-align: right;
+    padding-top: 100px;
+    margin-right: 5%;
+    position: absolute;
+    width: 80%;
+    right: 0px;
+    height: 60%;
+    overflow: scroll;
+    scrollbar-width: none;
   }
+
 }
